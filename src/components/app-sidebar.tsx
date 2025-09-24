@@ -1,5 +1,6 @@
-import { Calendar, Home, Inbox, Sun, LogOut, Menu } from "lucide-react"
-import {CustomTrigger} from "./CustomTrigger.tsx";
+import { Home, Fence, Sun, ShieldBan, LogOut, Menu } from "lucide-react"
+import { useSidebar } from "@/components/ui/sidebar"
+import "../index.css"
 import {
   Sidebar,
   SidebarContent,
@@ -20,12 +21,12 @@ const items = [
   {
     title: "Bookings",
     url: "#",
-    icon: Inbox,
+    icon: Fence,
   },
   {
     title: "Blacklist",
     url: "#",
-    icon: Calendar,
+    icon: ShieldBan,
   },
   {
     title: "Mode",
@@ -40,17 +41,18 @@ const items = [
 ]
 
 export function AppSidebar() {
+  const { toggleSidebar } = useSidebar()
   return (
-    <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
+    <Sidebar variant="sidebar" collapsible="icon" className="bg-[#7785FC] rounded-r-4xl w-[150px]">
+      <SidebarContent className="bg-[#7785FC] rounded-r-4xl">
+        <SidebarGroup className="flex flex-cols justify-center min-h-full">
           <SidebarGroupContent>
             <SidebarMenu>
 
                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
+                    <SidebarMenuButton onClick={toggleSidebar} className="text-[#fff] hover:text-[#000]" asChild>
                         <a href="#">
-                            <Menu />
+                            <Menu className="text-[#fff] h-[27px] w-[27px]" />
                             <span>Menu</span>
                         </a>
                     </SidebarMenuButton>
@@ -58,9 +60,9 @@ export function AppSidebar() {
 
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild className="text-[#fff] hover:text-[#000]">
                     <a href={item.url}>
-                      <item.icon />
+                      <item.icon className="text-[#fff] h-[27px] w-[27px]"/>
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
