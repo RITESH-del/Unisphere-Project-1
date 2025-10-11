@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import RejectBooking from './RejectBooking';
-// import SearchbarBooking from './SearchbarBooking';
-// import TerminateBooking from './TerminateBooking';
-// import { Dialog, DialogContent } from './ui/dialog';
+import SearchbarBooking from './SearchbarBooking';
+import TerminateBooking from './TerminateBooking';
 import { Button } from './ui/button';
-// import OngoingBooking from './OngoingBooking';
+import OngoingBooking from './OngoingBooking';
 
 const HomePage: React.FC = () => {
   // Separate states for both dialogs
-//   const [isOngoingOpen, setIsOngoingOpen] = useState(false);
+  const [isOngoingOpen, setIsOngoingOpen] = useState(false);
   const [isRejectOpen, setIsRejectOpen] = useState(false);
-//   const [isTerminateOpen, setIsTerminateOpen] = useState(false);
-//   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
+  const [isTerminateOpen, setIsTerminateOpen] = useState(false);
+  const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
 
   // Mock data
   const mockBooking = {
@@ -40,11 +39,11 @@ const HomePage: React.FC = () => {
 
         <div className="space-x-4 mb-6">
           {/* Ongoing Booking */}
-          {/* <Button 
+          <Button 
             onClick={() => setIsOngoingOpen(true)}
             className="bg-red-600 hover:bg-red-700">
             Ongoing Booking
-          </Button> */}
+          </Button>
 
           {/* Reject Booking */}
           <Button 
@@ -54,18 +53,18 @@ const HomePage: React.FC = () => {
           </Button>
 
           {/* Reject Booking */}
-          {/* <Button 
+          <Button 
             onClick={() => setIsTerminateOpen(true)}
             className="bg-yellow-600 hover:bg-yellow-700">
             Terminate Booking
-          </Button> */}
+          </Button>
 
           {/*Searchbar Booking */}
-          {/* <Button 
+          <Button 
             onClick={() => setIsTerminateOpen(true)}
             className="bg-green-600 hover:bg-green-700">
             Searchbar - Approve/Reject Booking
-          </Button> */}
+          </Button>
         </div>
 
 
@@ -78,27 +77,27 @@ const HomePage: React.FC = () => {
         />
 
         {/* open ongoing cabin booking */}
-        {/* <OngoingBooking
+        <OngoingBooking
           isOpen = {isOngoingOpen}
           onClose={() => setIsOngoingOpen(false)}
           booking={mockBooking}
-        /> */}
+        />
         
         
 
         {/* Open SearchbarBooking.tsx*/}
-        {/* <TerminateBooking 
+        <TerminateBooking 
           isOpen={isTerminateOpen}
           onClose={() => setIsTerminateOpen(false)}
           booking ={mockBooking}
-          /> */}
+          />
 
         {/* Open SearchbarBooking.tsx*/}
-        {/* <SearchbarBooking 
+        <SearchbarBooking 
           isOpen={isSearchbarOpen}
           onClose={() => setIsSearchbarOpen(false)}
           booking={mockBooking}
-        /> */}
+        />
       </div>
     </div>
   );
