@@ -1,15 +1,19 @@
-import { SidebarProvider } from "@/components/ui/sidebar"
-import { AppSidebar } from '../components/app-sidebar';
-import HomePage from "@/components/HomePage";
-  
+
+import { SidebarProvider} from "@/components/ui/sidebar"
+import {AppSidebar} from '../components/app-sidebar';
+import {Outlet} from 'react-router-dom';
+
 function Root() {
     return (
-        <SidebarProvider className="border-r-8">
-            <AppSidebar />
-            <div className="main-content">
-                <HomePage />
-            </div>
-        </SidebarProvider>
+        <>
+    <SidebarProvider className="border-r-8 m-0 p-0">
+      <AppSidebar />
+        {/* <SidebarTrigger /> */}
+      <div>
+        <Outlet />
+      </div>
+    </SidebarProvider>
+        </>
     )
 }
 

@@ -17,6 +17,7 @@ const items = [
     title: "Home",
     url: "#",
     icon: Home,
+  
   },
   {
     title: "Bookings",
@@ -43,26 +44,26 @@ const items = [
 export function AppSidebar() {
   const { toggleSidebar } = useSidebar()
   return (
-    <Sidebar variant="sidebar" collapsible="icon" className="bg-[#7785FC] rounded-r-4xl w-[150px]">
-      <SidebarContent className="bg-[#7785FC] rounded-r-4xl">
-        <SidebarGroup className="flex flex-cols justify-center min-h-full">
+    <Sidebar variant="sidebar" collapsible="icon" className="bg-[#7785FC] rounded-r-4xl m-0 p-0 h-[120vh]">
+      <SidebarContent className="bg-[#7785FC] rounded-r-4xl flex flex-cols justify-center min-h-full ">
+        <SidebarGroup className="pr-0">
           <SidebarGroupContent>
             <SidebarMenu>
 
                 <SidebarMenuItem>
-                    <SidebarMenuButton onClick={toggleSidebar} className="text-[#fff] hover:text-[#000]" asChild>
-                        <a href="#">
-                            <Menu className="text-[#fff] h-[27px] w-[27px]" />
+                    <SidebarMenuButton onClick={toggleSidebar} className="text-[#fff] my-3 hover:text-[#000] rounded-l-full py-2" >
+                        <a href="#" className="flex gap-[20px] items-center">
+                            <Menu size={28} className="hover:text-[#7785FC]"/>    
                             <span>Menu</span>
                         </a>
-                    </SidebarMenuButton>
+                    </SidebarMenuButton>  
                 </SidebarMenuItem>
 
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="text-[#fff] hover:text-[#000]">
-                    <a href={item.url}>
-                      <item.icon className="text-[#fff] h-[27px] w-[27px]"/>
+                <SidebarMenuItem key={item.title} className="my-3">
+                  <SidebarMenuButton className="text-[#fff] hover:text-[#000] rounded-l-full">
+                    <a href={item.url} className="flex gap-[20px] items-center">
+                      <item.icon size={28} className="hover:text-[#7785FC]"/>
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
