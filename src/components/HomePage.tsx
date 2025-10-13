@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
     checkOutTime: "7:35 PM",
     remainingTime: "12 minutes 20 seconds",
     requestGenerated: "Wed, 25 January 2025, 12:55 PM",
-    bookingTime: "Wed, 25 January 2025, 12:55 P7:30 PM - 8:30 PM",
+    bookingTime: "Wed, 25 January 2025, 12:55 7:30 PM - 8:30 PM",
     bookingId: "36330",
     cabinNumber: "2"
   };
@@ -33,9 +33,9 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-[80px] bg-gray-100 flex items-center justify-center p-8">
       <div className="text-center">
-        {/* <h1 className="text-3xl font-bold text-gray-800 mb-4">
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Library System
-        </h1> */}
+        </h1>
 
         <div className="space-x-4 mb-6">
           {/* Ongoing Booking */}
@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
             Reject Booking
           </Button>
 
-          {/* Reject Booking */}
+          {/* Terminate Booking */}
           <Button 
             onClick={() => setIsTerminateOpen(true)}
             className="bg-yellow-600 hover:bg-yellow-700">
@@ -85,7 +85,7 @@ const HomePage: React.FC = () => {
         
         
 
-        {/* Open SearchbarBooking.tsx*/}
+        {/* Open terminateBooking.tsx*/}
         <TerminateBooking 
           isOpen={isTerminateOpen}
           onClose={() => setIsTerminateOpen(false)}

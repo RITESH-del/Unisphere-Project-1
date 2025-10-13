@@ -28,7 +28,7 @@ interface BookingCardProps {
 const TerminateBooking: React.FC<BookingCardProps> = ({ isOpen, onClose, booking }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose} >
-      <DialogContent className="max-w-10 bg-white rounded-lg shadow-xl">
+      <DialogContent className="max-w-2xl w-full bg-white rounded-lg shadow-xl p-0">
         <Card className="border-none">
           {/* Header */}
           <CardHeader>
@@ -93,11 +93,11 @@ const TerminateBooking: React.FC<BookingCardProps> = ({ isOpen, onClose, booking
           </div>
           <div className="flex justify-between">
             <span className="font-medium">Request Generated:</span>
-            <span className=" text-gray-600 text-sm">{booking.requestGenerated}</span>
+            <span className=" text-gray-600 text-sm text-right">{booking.requestGenerated}</span>
           </div>
           <div className="flex justify-between">
             <span className="font-medium">Booking Time:</span>
-            <span className=" text-gray-600 text-sm">{booking.bookingTime}</span>
+            <span className=" text-gray-600 text-sm text-right">{booking.bookingTime}</span>
           </div>
           <div className="flex justify-between">
             <span className="font-medium">Booking ID:</span>
