@@ -4,6 +4,7 @@ import SearchbarBooking from './SearchbarBooking';
 import TerminateBooking from './TerminateBooking';
 import { Button } from './ui/button';
 import OngoingBooking from './OngoingBooking';
+import Blacklist from './Blacklist';
 
 const HomePage: React.FC = () => {
   // Separate states for both dialogs
@@ -11,6 +12,7 @@ const HomePage: React.FC = () => {
   const [isRejectOpen, setIsRejectOpen] = useState(false);
   const [isTerminateOpen, setIsTerminateOpen] = useState(false);
   const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
+  const [isBlacklistOpen, setIsBlacklistOpen] = useState(false);
 
   // Mock data
   const mockBooking = {
@@ -61,9 +63,18 @@ const HomePage: React.FC = () => {
 
           {/*Searchbar Booking */}
           <Button 
-            onClick={() => setIsTerminateOpen(true)}
+            onClick={() => setIsSearchbarOpen(true)}
             className="bg-green-600 hover:bg-green-700">
             Searchbar - Approve/Reject Booking
+          </Button>
+
+
+
+          {/*Blacklist dialog box */}
+          <Button 
+            onClick={() => setIsBlacklistOpen(true)}
+            className="bg-purple-600 hover:bg-purple-700">
+            Black List Student
           </Button>
         </div>
 
@@ -82,8 +93,6 @@ const HomePage: React.FC = () => {
           onClose={() => setIsOngoingOpen(false)}
           booking={mockBooking}
         />
-        
-        
 
         {/* Open terminateBooking.tsx*/}
         <TerminateBooking 
@@ -98,8 +107,16 @@ const HomePage: React.FC = () => {
           onClose={() => setIsSearchbarOpen(false)}
           booking={mockBooking}
         />
+
+        {/* Open Blacklist.tsx*/}
+        <Blacklist 
+          isOpen={isBlacklistOpen}
+          onClose={() => setIsBlacklistOpen(false)}
+          booking={mockBooking}
+        />
+        
       </div>
-    </div>
+  </div>
   );
 };
 

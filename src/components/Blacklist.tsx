@@ -27,27 +27,27 @@ interface BookingCardProps {
 const Blacklist : React.FC<BookingCardProps> = ({ isOpen, onClose, booking }) => {
     return (
         <Dialog open={isOpen} onOpenChange={onClose} >
-        <DialogContent className = "max-w-2xl w-full bg-white rounded-lg shadow-xl p-0 max-h-[95vh] overflow-y-auto">
+        <DialogContent className = "max-w-2xl w-full bg-white rounded-lg shadow-xl p-0 ">
         <Card className="border-none">
             {/* Header */}
             <CardHeader>
             <CardTitle>
-                <div className="flex justify-center text-lg">
+                <div className="flex justify-center text-lg font-bold">
                 Black List Student
                 </div>
             </CardTitle>
             </CardHeader>
 
-                <CardContent>
-                     <div className="flex justify-between">
-              <span className="font-medium">Request Generated:</span>
-              <span className=" text-gray-600 text-sm">Mayank Gupta</span>
+            <CardContent>
+              <div className="flex justify-centre align-center gap-3 mb-4">
+              <span className="font-medium">Enter Reason for Blacklisting:</span>
+              <span className=" text-gray-600 text-sm text-right ">Mayank Gupta</span>
             </div>
 
             {/* Blacklist Reason */}
-            <div className="space-y-2  pt-2">
+            <div className="space-y-  pt-2">
             <textarea 
-                placeholder="lorem2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                placeholder="lorem2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt lorem2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ."
                 className="w-full h-24 border rounded-lg p-3 text-sm resize-none"
                 required
                 />
