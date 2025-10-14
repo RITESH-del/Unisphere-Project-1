@@ -1,6 +1,7 @@
 import {Search} from "lucide-react";
 import LibrarySlotBox from "../components/LibrarySlotBox";
 import OngoingBooking from "../components/OngoingBooking";
+import SearchbarBooking from "../components/SearchbarBooking";
 import logo from "../assets/Logo.svg";
 import { useState } from "react";
 
@@ -20,6 +21,7 @@ export default function HomePage () {
 
    // state for dialog open/close
   const [isOngoingOpen, setIsOngoingOpen] = useState(false);
+  const [isSearchbarOpen, setIsSearchbarOpen] = useState(false);
 
   // Mock booking data
   const mockBooking = {
@@ -67,10 +69,18 @@ export default function HomePage () {
         </div>
 
         <div className="flex flex-row w-[65vw] h-[60px] rounded-2xl border-neutral-200 border-[1px] my-[20px] bg-neutral-100 mx-[auto]">
-        <Search className="my-[auto] mx-[20px] text-neutral-400 "/>
-            <input type="text" 
+        <Search  className="my-[auto] mx-[20px] text-neutral-400 "/>
+            <input type="text"
+              onClick={() => setIsSearchbarOpen(true)} 
                 className="w-[80%]  bg-neutral-100 focus:outline-none focus:border-none"
                 placeholder="Search by Booking ID ,name or any related keyword"/> 
+
+                {/* Open SearchbarBooking.tsx*/}
+        <SearchbarBooking 
+          isOpen={isSearchbarOpen}
+          onClose={() => setIsSearchbarOpen(false)}
+          booking={mockBooking}
+        />
         </div>
 
         {/* Library Slots Grid */}

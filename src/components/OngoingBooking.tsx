@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from './ui/card';
+import TerminateBooking from './TerminateBooking';
 import { Dialog, DialogContent } from './ui/dialog';
 import { Button } from './ui/button';
 import { User } from 'lucide-react';
+
 
 interface Student {
   name: string;
@@ -25,7 +27,31 @@ interface BookingCardProps {
   };
 }
 
+
 const OngoingBooking: React.FC<BookingCardProps> = ({ isOpen, onClose, booking }) => {
+
+
+  const [isTerminateOpen, setIsTerminateOpen] = useState(false);
+
+ // Mock data
+  const mockBooking = {
+    cableNumber: "2",
+    students: [
+      { name: "Mayank Gupta", id: "230553" },
+      { name: "Mayank Gupta", id: "230553" },
+      { name: "Mayank Gupta", id: "230553" },
+      { name: "Mayank Gupta", id: "230553" }
+    ],
+    checkInTime: "7:20 PM",
+    checkOutTime: "7:35 PM",
+    remainingTime: "12 minutes 20 seconds",
+    requestGenerated: "Wed, 25 January 2025, 12:55 PM",
+    bookingTime: "Wed, 25 January 2025, 12:55 7:30 PM - 8:30 PM",
+    bookingId: "36330",
+    cabinNumber: "2"
+  };
+
+  
   return (
     <Dialog open={isOpen} onOpenChange={onClose} >
       <DialogContent className = "max-w-2xl w-full bg-white rounded-lg shadow-xl p-0 max-h-[95vh] overflow-y-auto">
@@ -110,10 +136,16 @@ const OngoingBooking: React.FC<BookingCardProps> = ({ isOpen, onClose, booking }
 
           {/* Footer Buttons */}
           <CardFooter>
-            <div className="flex justify-center items-center gap-4 w-full pb-4 pt-2">
+            <div  onClick={() => setIsTerminateOpen(true)} className="flex justify-center items-center gap-4 w-full pb-4 pt-2">
             <Button className="bg-[#7785FC] hover:bg-[#6c78eb] text-white px-8 rounded-full">
               Terminate
             </Button>
+             {/* Open terminateBooking.tsx*/}
+              <TerminateBooking 
+                isOpen={isTerminateOpen}
+                onClose={() => setIsTerminateOpen(false)}
+                booking = {mockBooking}
+                />
             </div>
           </CardFooter>
         </Card>

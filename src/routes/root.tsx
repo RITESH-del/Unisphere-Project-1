@@ -13,6 +13,7 @@ function Root() {
         <Outlet />
       </div>
     </SidebarProvider>
+    
         </>
     )
 }

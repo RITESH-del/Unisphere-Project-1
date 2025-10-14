@@ -26,7 +26,7 @@ interface BookingCardProps {
 const SearchbarBooking: React.FC<BookingCardProps> = ({ isOpen, onClose, booking }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose} >
-      <DialogContent className="max-w-2xl w-full bg-white rounded-lg shadow-xl p-0">
+      <DialogContent className="max-w-2xl w-full bg-white rounded-lg shadow-xl p-0 overflow-y-auto max-h-[90vh]">
         <Card className="border-none">
           {/* Header */}
           <CardHeader>
